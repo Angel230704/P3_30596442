@@ -1,0 +1,70 @@
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+@font-face{
+	font-family: "Hola";
+	src: url("/fuentes/foreignskiesDEMO.otf");
+}
+
+body{
+background-image:url('https://images.unsplash.com/photo-1637666522102-bdb1c9d84b5f?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+background-size:cover;
+background-attachment:fixed;
+}
+.Body{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+}
+.nav{
+	width: 100vw;
+	height: 50px;
+	background: rgba(0, 0, 0, 1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.table{
+width:80%;
+background:rgba(252, 252, 252, 0.5);
+box-shadow: 0 0 10px 10px rgba(252, 252, 252, 0.5);
+z-index: 0;
+}
+table{
+ color:white;
+ width:100%;
+}
+h1{
+	color:rgb(255, 255, 255);
+	text-align:center;
+	margin-top:50px;
+	transform: translate(0, -95px);
+}
+td, th{
+	color: black;
+	text-align:center;
+	font: 30px "Hola";
+}
+#botonProductos{
+	width: 100px;
+	height: 30px;
+	background:rgba(0, 0, 0, .8);
+	text-decoration: none;
+	padding:6px;
+	margin:20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	color: rgb(255, 255, 255);
+}
+#add{
+ height:5vh;
+}
