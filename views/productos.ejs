@@ -5,14 +5,21 @@
   <meta charset="UTF-8">
   <title>Productos</title>
   <link rel="stylesheet" type="text/css" href="/css/producto.css">
-  
+  <link rel="icon" type="image/x-icon" href="img/zapato.png"/>
 </head>
 <body>
+
+ <div id='botones'>
+    <a class='botonProductos' href="/logout2">Regresar</a>
+    <a href='/categorias' class='botonProductos'>Categorias</a>
+    <a href="/usuarios">Usuarios</a> 
+    <a href="/compras">Compras</a>
+    <a href="/productos">Productos</a>
+    <a href="/add"><img src="/img/add.png" id='add'></a>
+  </div>
+
   <div class="Body">
-    <nav class="nav">
-    <a id='botonProductos' href="/"><img src="/img/volver.png">Volver</a>
-  <a href='/categorias' id='botonProductos' class="Volver"><img src="/img/categorizar.png" alt="">Categorias</a>
-    </nav>
+  
   <h1>Productos<%=modelo.length%></h1>
   <div class="table">
     <table>
@@ -24,7 +31,8 @@
             <th>Descripcion</th>
             <th>Calidad</th>
             <th>Cantidad</th>
-            <th><a href="/add"><img src="/img/add.png" id='add'></a></th>
+            <th>Categorias</th>
+           <th>Opciones</th>
           </tr>
           <%for(const producto of modelo){%>
             <tr>
@@ -35,11 +43,13 @@
               <td><%=producto.descripcion%></td>
               <td><%=producto.calidad%></td>
               <td><%=producto.cantidad%></td>
+              <td><%=producto.categoria_id%></td>
               <td class="icon">
               <a href="/update/<%= producto.producto_id%>"><img src="/img/update.png" width="30"></a>
               <a href="/delete/<%= producto.producto_id%>"><img src="/img/delete.png" width="30" id="delete"></a>
-              <a href="/addImagen"><img src="/img/imagen.png" width="30"></a>
+              <a href="/addImagen/<%= producto.producto_id%>"><img src="/img/imagen.png" width="30"></a>
              </td>
+
             </tr>
            <%}%>
         </table>

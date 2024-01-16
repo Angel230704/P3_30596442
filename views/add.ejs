@@ -10,57 +10,62 @@
     <link rel="stylesheet" type="text/css" href="/css/update.css">
    <title>Update</title>
 </head>
-
-<h1 id="crear">Agregar Producto</h1>
+ <h1>Agregar Producto</h1>
 
 <form action="/addPost" method="post">
-    
 <div class='flex-principal'>
 <!------------------------------------------->
 <div id="editorcentrall">
-    <!------------------------------------------>
-    <div class="DIV">
-    <label for="nombre">nombre</label>
-    
-    <input type="text" autofocus name="nombre" value=""/>
-    </div>
-    <!------------------------------------------>
-    <div class="DIV">
-    <label for="codigo">codigo</label>
-    
-    <input name="codigo" type="number" value=""/>
-    </div>
-    <!--------------------------------------------->
-    <div class="DIV">
-    <label for="precio">precio</label>
-    <input type="number" name="precio" value="">
-    </div>
-    <!----------------------------------------------------->
-    <div class="DIV">
-    <label for="descripcion">descripcion</label>
-    <input type="text" name="descripcion" value="">
-    </div>
-    <!----------------------------------------------------->
-    <div class="DIV">
-    <label for="calidad">calidad</label>
-    <input type="text" name="calidad" value="">
-    </div>
-    <!----------------------------------------------------->
-    <div class="DIV">
-    <label for="cantidad">Cantidad</label>
-    <input type="number" name="cantidad" value="">
-    </div>
-    <!----------------------------------------------------->
-    </div>
-    
+<!------------------------------------------>
+<label for="nombre">Nombre</label>
+
+<input class="input" type="text" autofocus name="nombre" placeholder="Nombre" />
+
+<!------------------------------------------>
+
+<label for="codigo">Codigo</label>
+
+<input class="input" name="codigo" type="number" placeholder=" Codigo" />
+
+<!--------------------------------------------->
+
+<label for="precio">Precio</label>
+<input class="input" type="number" name="precio" placeholder=" Precio">
+
+<!----------------------------------------------------->
+<label for="descripcion">Descripcion</label>
+<input class="input h-auto" type="text" name="descripcion" placeholder=" Descripcion">
+
+<!----------------------------------------------------->
+<label for="calidad">Calidad</label>
+<input class="input" type="text" name="calidad" placeholder=" Calidad">
+<!----------------------------------------------------->
+<label for="cantidad">Cantidad</label>
+<input class="input" type="number" name="cantidad" placeholder=" Cantidad">
+<!--------------------------------------------------->
+<label for='categoria'>Categoria</label>
+                        <select id='categoria' name='categoria' required>
+            <option value="2">Categoria 2</option>
+            <option value="3">Categoria 3</option>
+            <option value="4">Categoria 4</option>
+            <option value="5">Categoria 5</option>
+            </select>
+<!----------------------------------------------------->
+</div>
+
 <!------------------------------------------->
 <div id="cancelar">
-	<input type="submit" value="Actualizar" id="update">
-    <a href="/productos" id="botonProductos">Productos</a>
+    <input type="submit" value="Agregar" class='update'>
+    <input type="button" value="Regresar" onclick='regresar()'>
 </div>
 
 </div>
-
 </form>
+<script type="text/javascript">
+    function regresar(){
+        window.location.href='/productos';
+    }
+</script>
 </body>
+
 </html>
