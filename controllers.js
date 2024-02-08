@@ -76,7 +76,13 @@ app.get('/',(req,res)=>{
 });
 
 app.get('/login',(req,res)=>{
-res.render('login.ejs');
+res.render('login.ejs',{
+  og:{
+      title: 'zapatos',
+      description: 'Venta de calzado',
+      image: 'https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      }
+});
 });
 
 
@@ -255,7 +261,7 @@ app.get('/comprar/:id',verifyToken,(req,res)=>{
   baseDatosModels.comprar(req,res);
 });
 //------------------------------------------------------
-app.post('/comprarPost',async (req,res)=>{
+app.post('/comprarPost',verifyToken,async (req,res)=>{
 baseDatosModels.comprarPOST(req,res);
 })
 //------------------------------------------------------
@@ -309,6 +315,43 @@ baseDatosModels.deleteUser(req,res);
 app.get('/deleteCompra/:id',(req,res)=>{
 baseDatosModels.deleteCompra(req,res);
 })
+//------------------------------------------------------
+app.post('/puntuaciones',verifyToken,(req,res)=>{
+baseDatos.puntuaciones(req,res);
+});
+
+app.get('/recuperarPassword',(req,res)=>{
+res.render('recuperarPassword.ejs',{
+    og:{
+      title: 'zapatos',
+      description: 'Venta de calzado',
+      image: 'https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      }
+});
+});
+
+//------------------------------------------------------
+app.post('/recuperarPassword',(req,res)=>{
+baseDatos.enviarEmailRecuperacion(req,res);
+});
+//------------------------------------------------------
+app.get('/restablecer',(req,res)=>{  
+
+const token = req.query.token;
+
+res.render('restablecer.ejs',{ og:{
+      title: 'zapatos',
+      description: 'Venta de calzado',
+      image: 'https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      }});
+
+});
+//------------------------------------------------------
+app.post('/restablecer-contrasena',(req,res)=>{
+
+baseDatos.restablecerPost(req,res);
+
+});
 //------------------------------------------------------
 //logout cliente
 app.get('/logout',(req, res) => {
