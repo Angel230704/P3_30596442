@@ -122,13 +122,40 @@
 
                         </div>
 
-                        <div id='comprarDetalles'>
+                       <div class='comprarDetalles'>
 
-                           <a href="/comprar/<%=producto[x].producto_id%>"><img src="/img/carrito.png" width="30"></a>
+                   <a href="/comprar/<%=producto[x].producto_id%>"><img src="/icon/comprar.png" width="30"></a>
 
-                           <a href="/detalles/<%=producto[x].producto_id%>" style='margin-top:7px;margin-left:8px;'><img src="/img/ojo.png" width="30"></a> 
+                   <a href="/detalles/<%=producto[x].producto_id%>" style='margin-top:7px;margin-left:8px;color:blue'>Detalles</a>  
+                   
+                   <div class='contenedorPuntuacion'>
 
-                       </div>
+                   <p class="puntuacion" data-producto_id='<%=producto[x].producto_id%>' data-puntuacion='<%=producto[x].puntuacion%>'><% if(producto[x].puntuacion !== null){ %>
+                    Puntuación Total: <%=producto[x].puntuacion%>
+                   <% }else{%>
+                    Sin Puntuación
+                   <% } %> 
+                   </p>
+
+
+                   </div>
+
+            
+
+                   <div class='estrellas'>
+                     <img src="/icon/estrella.png" width="20" class="estrella" data-valor='1' title="1">
+                     
+                     <img src="/icon/estrella.png" width="20" class="estrella" data-valor='2' title="2">
+
+                     <img src="/icon/estrella.png" width="20" class="estrella" data-valor='3' title="3">
+
+                     <img src="/icon/estrella.png" width="20" class="estrella" data-valor='4' title="4">
+
+                     <img src="/icon/estrella.png" width="20" class="estrella" data-valor='5' data-producto_id='<%=producto[x].producto_id%>' title="5"> 
+                 </div>      
+                
+
+             </div>
 
 
 
@@ -219,6 +246,7 @@
 
 <!-- Core theme JS-->
 <script src="/js/script.js"></script>
+<script type="text/javascript" src='/JavaScript/puntuaciones.js'></script>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <!-- * *                               SB Forms JS                               * *-->
 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
