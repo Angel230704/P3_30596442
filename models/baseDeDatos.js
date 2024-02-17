@@ -13,8 +13,8 @@ const crypto = require('crypto');
 const transporter = nodemailer.createTransport({
   service:'Gmail',
   auth:{
-    user:'jeffersonmorgado11@gmail.com',
-    pass:'nkvamhknmwhrryyd'
+    user:'soapdelinger@gmail.com',
+    pass:'fjyjjpdbmbumzzsa'
   }
 });
 
@@ -25,8 +25,8 @@ const transporter2 = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: 'jeffersonmorgado11@gmail.com',
-    pass: 'nkvamhknmwhrryyd'
+    user: 'soapdelinger@gmail.com',
+    pass: 'fjyjjpdbmbumzzsa'
   }
 });
 // Crear la base de datos
@@ -438,10 +438,10 @@ function registroUsuariosPost(req,res){
 
  if(e) return console.error(e.message);
  const mensaje = {
-  from:'jeffersonmorgado11@gmail.com',
+  from:'soapdelinger@gmail.com',
   to:email,
-  subject:'!Bienvenido queridisimo usuario¡',
-  text:`Hola ${nombre} ${apellido}, !Nuestros esfuerzos son centrados en usuarios potenciales para la creacion de biodiversidad forestal , beneficiosa e inigualable.¡`
+  subject:'!Bienvenido¡',
+  text:`Hola ${nombre} ${apellido}, !Gracias por Registrarte¡`
   }
 
   transporter.sendMail(mensaje,(error,info)=>{
@@ -538,7 +538,9 @@ console.log(data[0]);
 }
 //--------------------------------------------------
 async function comprarPOST(req,res){
-
+//Email proveniente del token de seguridad 
+const destinatario = req.user.email;
+console.log(destinatario,'destinatario');
 let data;
 
 const {nombre_de_usuario,apellido,cedula,telefono,cliente_id,producto_id,cantidad,total_pagado,codigo,ip_cliente,numeroT,cvv,mesV,year,currency,descripcion} = req.body;
@@ -581,7 +583,7 @@ VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 db.run(sql,[nombre_de_usuario,apellido,cedula,telefono,cliente_id,producto_id,cantidad,total_pagado,ip_cliente,codigo,numeroT,cvv,mesV,year,currency,descripcion],(err)=>{
   if(err) return console.error(err.message);
     const mailOptions = {
-    from: 'jeffersonmorgado11@gmail.com', // Reemplaza con tu dirección de correo electrónico
+    from: 'soapdelinger@gmail.com', // Reemplaza con tu dirección de correo electrónico
     to: destinatario, // Reemplaza con la dirección de correo del cliente
     subject:'Mensaje de confirmacion', // Reemplaza con el asunto del correo electrónico
     text: `Gracias por su compra ${nombre_de_usuario}`  // Reemplaza con el contenido del correo electrónico en texto sin formato
@@ -766,11 +768,11 @@ function enviarEmailRecuperacion(req,res){
  res.cookie('securityToken',token, { httpOnly: true, secure: true });
 
   // Crear la URL de recuperación de contraseña
-  const recoveryURL = `http://ventasonlinerandis.onrender.com/restablecer?token=${token}`;
+  const recoveryURL = `https://webangel.onrender.com/restablecer?token=${token}`;
 
   // Enviar el correo electrónico de recuperación de contraseña
   const mailOptions = {
-    from: 'jeffersonmorgado11@gmail.com',
+    from: 'soapdelinger@gmail.com',
     to: email,
     subject: 'Recuperación de contraseña',
     text: `Haz clic en el siguiente enlace para restablecer tu contraseña: ${recoveryURL}`
